@@ -1,8 +1,9 @@
-const { Op } = require('sequelize');
+const { Op, QueryTypes } = require('sequelize');
 
-const Paciente = require('../models/Paciente');
+const { sequelize } = require('../config/database');
+const { Paciente } = require('../models');
 
-// Obtiene todos los pacientes o filtra por nombre.
+// Obtiene todos los pacientes o filtra por nombre utilizando Sequelize ORM.
 const obtenerPacientes = async (nombre) => {
   const where = {};
 
@@ -26,6 +27,29 @@ const obtenerPacientes = async (nombre) => {
     ],
     order: [['id', 'ASC']]
   });
+};
+
+// Realiza una consulta SQL manual.
+// Se utiliza para comparar SQL directo con el acceso mediante Sequelize ORM.
+const obtenerPacientesConSql = async () => {
+  return sequelize.query(
+    `
+      SELECT
+        id,
+        nombre,
+        apellido,
+        email,
+        telefono,
+        estado,
+        "createdAt",
+        "updatedAt"
+      FROM pacientes
+      ORDER BY id ASC
+    `,
+    {
+      type: QueryTypes.SELECT
+    }
+  );
 };
 
 // Busca un paciente por su identificador.
@@ -74,6 +98,7 @@ const eliminarPaciente = async (paciente) => {
 
 module.exports = {
   obtenerPacientes,
+  obtenerPacientesConSql,
   obtenerPacientePorId,
   crearPaciente,
   actualizarPaciente,

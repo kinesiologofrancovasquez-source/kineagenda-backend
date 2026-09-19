@@ -23,6 +23,31 @@ const getPacientes = async (req, res) => {
   }
 };
 
+// GET /pacientes/sql
+// Consulta los pacientes utilizando una sentencia SQL manual.
+const getPacientesConSql = async (req, res) => {
+  try {
+    const pacientes = await pacienteService.obtenerPacientesConSql();
+
+    return res.status(200).json({
+      status: 'success',
+      message: 'Pacientes obtenidos mediante SQL manual',
+      cantidad: pacientes.length,
+      data: pacientes
+    });
+  } catch (error) {
+    console.error(
+      'Error al obtener pacientes mediante SQL:',
+      error.message
+    );
+
+    return res.status(500).json({
+      status: 'error',
+      message: 'No fue posible ejecutar la consulta SQL'
+    });
+  }
+};
+
 // POST /pacientes
 const postPaciente = async (req, res) => {
   try {
@@ -80,10 +105,11 @@ const putPaciente = async (req, res) => {
       });
     }
 
-    const pacienteActualizado = await pacienteService.actualizarPaciente(
-      paciente,
-      req.body
-    );
+    const pacienteActualizado =
+      await pacienteService.actualizarPaciente(
+        paciente,
+        req.body
+      );
 
     return res.status(200).json({
       status: 'success',
@@ -151,6 +177,7 @@ const deletePaciente = async (req, res) => {
 
 module.exports = {
   getPacientes,
+  getPacientesConSql,
   postPaciente,
   putPaciente,
   deletePaciente

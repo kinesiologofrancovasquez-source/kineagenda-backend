@@ -2,6 +2,7 @@ const express = require('express');
 
 const {
   getPacientes,
+  getPacientesConSql,
   postPaciente,
   putPaciente,
   deletePaciente
@@ -9,8 +10,11 @@ const {
 
 const router = express.Router();
 
-// Listado general y búsqueda opcional por nombre.
+// Listado general y búsqueda opcional por nombre mediante Sequelize ORM.
 router.get('/', getPacientes);
+
+// Consulta alternativa utilizando SQL manual.
+router.get('/sql', getPacientesConSql);
 
 // Registro de un nuevo paciente.
 router.post('/', postPaciente);
