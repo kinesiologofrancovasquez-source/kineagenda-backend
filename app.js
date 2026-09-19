@@ -4,27 +4,33 @@ const express = require('express');
 const path = require('path');
 
 const mainRoutes = require('./routes/mainRoutes');
+const pacienteRoutes = require('./routes/pacienteRoutes');
 const accessLogger = require('./middlewares/accessLogger');
 const { connectDatabase } = require('./config/database');
+
+// Carga los modelos antes de sincronizar la base de datos.
+require('./models/Paciente');
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// Permite recibir datos JSON en las próximas rutas CRUD.
+// Permite que Express reciba información en formato JSON.
 app.use(express.json());
 
 // Registra cada acceso realizado al servidor.
 app.use(accessLogger);
 
 // Expone los recursos estáticos de KineAgenda.
-// Por ejemplo: /public/css/styles.css
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Conecta las rutas principales de la aplicación.
+// Rutas principales heredadas del Módulo 6.
 app.use('/', mainRoutes);
 
-// Comprueba PostgreSQL antes de iniciar el servidor.
+// Rutas relacionadas con los pacientes.
+app.use('/pacientes', pacienteRoutes);
+
+// Primero conecta PostgreSQL y luego inicia el servidor Express.
 const startServer = async () => {
   try {
     await connectDatabase();

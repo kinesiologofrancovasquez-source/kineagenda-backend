@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 // Configuración central de la conexión de KineAgenda con PostgreSQL.
-// Los datos sensibles se obtienen desde las variables de entorno.
+// Los datos de conexión se obtienen desde las variables de entorno.
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
@@ -14,11 +14,16 @@ const sequelize = new Sequelize(
   }
 );
 
-// Comprueba que PostgreSQL esté disponible antes de trabajar con los modelos.
+// Comprueba la conexión y sincroniza los modelos con PostgreSQL.
 const connectDatabase = async () => {
   try {
     await sequelize.authenticate();
+
+    // Crea las tablas que todavía no existan en la base de datos.
+    await sequelize.sync();
+
     console.log('Base de datos PostgreSQL conectada correctamente');
+    console.log('Modelos sincronizados correctamente');
   } catch (error) {
     console.error('Error al conectar con PostgreSQL:', error.message);
     throw error;
