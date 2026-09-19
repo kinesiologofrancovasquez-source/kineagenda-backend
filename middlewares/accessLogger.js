@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const logDirectory = path.join(__dirname, '..', 'logs');
-const logFile = path.join(logDirectory, 'access.log');
+const logFile = path.join(logDirectory, 'log.txt');
 
 const accessLogger = (req, res, next) => {
   const timestamp = new Date().toISOString();
