@@ -1,0 +1,18 @@
+{
+  "name": "kineagenda-backend",
+  "version": "1.0.0",
+  "description": "Backend para gestion de agenda kinesica, sesiones y control financiero",
+  "keywords": [
+    "kinesiologia",
+    "agenda",
+    "node",
+    "express"
+  ],
+  "license": "ISC",
+  "author": "Kinesiologo Franco Vasquez",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
