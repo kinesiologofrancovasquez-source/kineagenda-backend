@@ -83,6 +83,7 @@ kineagenda-backend/
 │   └── statusController.js
 │
 ├── docs/
+│   ├── 0_servidor_npm_run_dev.png
 │   └── flujo-servidor-cliente.md
 │
 ├── logs/
@@ -129,10 +130,10 @@ Durante el desarrollo de esta versión se utilizó Node.js 24.
 Clonar el repositorio:
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/kinesiologofrancovasquez-source/kineagenda-backend.git
 ```
 
-Entrar a la carpeta:
+Entrar a la carpeta del proyecto:
 
 ```bash
 cd kineagenda-backend
@@ -144,7 +145,7 @@ Instalar las dependencias:
 npm install
 ```
 
-Crear el archivo `.env` tomando como referencia `.env.example`:
+Crear un archivo `.env` tomando como referencia `.env.example`:
 
 ```env
 PORT=3000
@@ -165,6 +166,12 @@ Este comando ejecuta:
 
 ```bash
 node app.js
+```
+
+Al iniciar correctamente se muestra en la terminal:
+
+```text
+Servidor iniciado en http://localhost:3000
 ```
 
 ### Modo desarrollo
@@ -268,7 +275,9 @@ Ejemplo:
 
 Para guardar los registros se utiliza `fs.appendFile()`, de manera que cada nuevo acceso se agrega al archivo sin eliminar los registros anteriores.
 
-Actualmente el middleware registra las solicitudes que ingresan al servidor, incluyendo rutas principales y recursos estáticos. Esto también permite observar de forma sencilla cómo el navegador puede realizar varias solicitudes durante la carga de una página.
+Actualmente el middleware registra las solicitudes que ingresan al servidor, incluyendo rutas principales y recursos estáticos.
+
+Esto también permite observar cómo el navegador puede realizar varias solicitudes durante la carga de una página.
 
 ## Flujo cliente-servidor
 
@@ -294,13 +303,21 @@ Controller
 Respuesta HTML / JSON
 ```
 
+El cliente realiza una solicitud HTTP. Express recibe la petición y ejecuta el middleware encargado de registrar el acceso.
+
+Posteriormente, el router determina qué controlador debe procesar la solicitud y el controlador devuelve la respuesta correspondiente.
+
 ## Decisiones tomadas en esta etapa
 
 En este módulo preferí mantener una estructura simple, pero separada por responsabilidades.
 
-No incorporé todavía una base de datos porque esa integración corresponde a la siguiente etapa del proyecto. Tampoco agregué un motor de plantillas como EJS, ya que para los requerimientos actuales la página HTML estática y la respuesta JSON permiten demostrar el funcionamiento solicitado sin sumar una dependencia que todavía no es necesaria.
+No incorporé todavía una base de datos porque esa integración corresponde a la siguiente etapa del proyecto.
+
+Tampoco agregué un motor de plantillas como EJS, ya que para los requerimientos actuales la página HTML estática y la respuesta JSON permiten demostrar el funcionamiento solicitado sin sumar una dependencia que todavía no es necesaria.
 
 La interfaz presenta algunas funciones que forman parte de la planificación futura de KineAgenda, pero se identifican como próximas funcionalidades y no como herramientas ya implementadas.
+
+También decidí utilizar un archivo externo llamado `mainRoutes.js` para concentrar las rutas iniciales. El nombre permite identificar con mayor claridad que corresponde a las rutas principales de la aplicación.
 
 ## Evolución del proyecto
 
@@ -308,25 +325,32 @@ KineAgenda está pensado como un proyecto progresivo.
 
 ### Módulo 6
 
-Base del backend:
+En esta primera etapa se implementa la base del backend:
 
 - Node.js;
 - Express;
 - rutas;
 - controladores;
 - middlewares;
-- contenido estático;
+- contenido HTML;
+- respuesta JSON;
+- archivos estáticos;
+- variables de entorno;
 - registro mediante archivos planos.
 
 ### Módulo 7
 
-La siguiente etapa incorporará persistencia mediante una base de datos y un ORM. La planificación contempla entidades relacionadas con pacientes, profesionales, horas de atención y movimientos asociados a las sesiones.
+La siguiente etapa incorporará persistencia mediante una base de datos y un ORM.
+
+La planificación contempla entidades relacionadas con pacientes, profesionales, horas de atención y movimientos asociados a las sesiones.
 
 También se implementarán operaciones CRUD y relaciones entre las entidades.
 
 ### Módulo 8
 
-La última etapa incorporará una API REST con autenticación, autorización mediante JWT y manejo de archivos, además de las validaciones correspondientes.
+La última etapa incorporará una API REST con autenticación y autorización mediante JWT.
+
+También se contempla el manejo de archivos y las validaciones correspondientes.
 
 ## Reflexión técnica
 
@@ -334,9 +358,21 @@ Esta primera etapa me permitió entender mejor que levantar un servidor es solam
 
 Separar rutas, controladores y middlewares hace que el código sea más fácil de seguir y evita que `app.js` termine acumulando responsabilidades.
 
-También resultó útil implementar el registro en `log.txt`, porque permite visualizar de manera concreta las solicitudes que recibe el servidor. Incluso una carga simple desde el navegador puede generar más de una petición debido a los archivos estáticos.
+La implementación de `log.txt` también fue útil para visualizar de manera concreta las solicitudes que recibe el servidor.
 
-La intención es mantener esta misma organización cuando KineAgenda incorpore base de datos, CRUD, autenticación y API en las siguientes etapas.
+Una de las cosas que pude observar durante las pruebas es que una carga desde el navegador puede generar varias solicitudes. Además del documento HTML, el navegador necesita solicitar otros recursos, como la hoja de estilos.
+
+También comprobé la diferencia entre ejecutar el proyecto con `npm start` y trabajar con `npm run dev`. En desarrollo, nodemon facilita las pruebas porque puede reiniciar automáticamente el servidor cuando se realizan cambios.
+
+La intención es mantener esta organización cuando KineAgenda incorpore base de datos, operaciones CRUD, autenticación y API en las siguientes etapas.
+
+## Repositorio
+
+El código fuente y el historial de desarrollo del proyecto se encuentran en GitHub:
+
+```text
+https://github.com/kinesiologofrancovasquez-source/kineagenda-backend
+```
 
 ---
 
