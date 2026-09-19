@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="KineAgenda, sistema de gestión de agenda, pacientes, sesiones y control financiero para atención kinésica."
+  >
+
+  <title>KineAgenda | Kinesiólogo Franco Vásquez G.</title>
+
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ENCABEZADO
+       ===================================================== -->
+
+  <header class="header">
+    <div class="header-contenido">
+
+      <a href="/" class="marca" aria-label="Ir al inicio de KineAgenda">
+        <div class="marca-icono">
+          KA
+        </div>
+
+        <div class="marca-texto">
+          <span class="marca-kine">KINE</span>
+          <strong>AGENDA</strong>
+          <small>FRANCO VÁSQUEZ G.</small>
+        </div>
+      </a>
+
+
+      <nav class="navegacion" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#herramientas">Herramientas</a>
+        <a href="#proyecto">Proyecto</a>
+        <a href="#estado">Estado</a>
+      </nav>
+
+
+      <a href="/status" class="boton-header">
+        Estado API
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================================
+         HERO / PRESENTACIÓN
+         ===================================================== -->
+
+    <section id="inicio" class="hero">
+
+      <div class="decoracion decoracion-superior"></div>
+      <div class="decoracion decoracion-inferior"></div>
+
+      <div class="hero-contenido">
+
+        <!-- Columna izquierda -->
+        <div class="hero-informacion">
+
+          <div class="insignia">
+            <span class="insignia-punto"></span>
+
+            Gestión de agenda, pacientes y sesiones
+          </div>
+
+
+          <h1>
+            Organiza tu consulta
+            <span>kinésica</span>
+            en un solo lugar
+          </h1>
+
+
+          <p class="hero-descripcion">
+            KineAgenda es una herramienta pensada para centralizar
+            la organización diaria de la consulta, facilitando el
+            manejo de horarios, pacientes, sesiones y movimientos
+            financieros.
+          </p>
+
+
+          <div class="hero-botones">
+
+            <a href="#herramientas" class="boton boton-principal">
+              Ver herramientas
+            </a>
+
+            <a href="/status" class="boton boton-secundario">
+              Estado del servidor
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Columna derecha -->
+        <aside class="panel-principal">
+
+          <p class="panel-etiqueta">
+            KINEAGENDA
+          </p>
+
+          <h2>
+            Gestión de consulta
+          </h2>
+
+          <p class="panel-descripcion">
+            Una base digital para organizar el trabajo clínico
+            y administrativo de forma simple.
+          </p>
+
+
+          <div class="panel-opciones">
+
+            <a href="#herramientas" class="panel-opcion">
+              <span class="opcion-icono">📅</span>
+
+              <div>
+                <strong>Agenda semanal</strong>
+                <small>Organización de horas de atención</small>
+              </div>
+            </a>
+
+
+            <a href="#herramientas" class="panel-opcion">
+              <span class="opcion-icono">👤</span>
+
+              <div>
+                <strong>Pacientes</strong>
+                <small>Registro y seguimiento</small>
+              </div>
+            </a>
+
+
+            <a href="#herramientas" class="panel-opcion">
+              <span class="opcion-icono">💪</span>
+
+              <div>
+                <strong>Sesiones</strong>
+                <small>Control de tratamientos</small>
+              </div>
+            </a>
+
+
+            <a href="#herramientas" class="panel-opcion">
+              <span class="opcion-icono">📊</span>
+
+              <div>
+                <strong>Finanzas</strong>
+                <small>Pagos, ingresos y egresos</small>
+              </div>
+            </a>
+
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         HERRAMIENTAS
+         ===================================================== -->
+
+    <section id="herramientas" class="herramientas">
+
+      <div class="contenedor">
+
+        <div class="encabezado-seccion centrado">
+
+          <p class="etiqueta-seccion">
+            HERRAMIENTAS
+          </p>
+
+          <h2>
+            Gestión de la consulta
+          </h2>
+
+          <p>
+            KineAgenda reúne en un mismo sistema las principales
+            tareas administrativas necesarias para organizar
+            la atención kinésica.
+          </p>
+
+        </div>
+
+
+        <div class="grid-herramientas">
+
+          <!-- Agenda -->
+          <article class="tarjeta-herramienta tarjeta-destacada">
+
+            <div class="tarjeta-superior">
+
+              <span class="tarjeta-icono">
+                📅
+              </span>
+
+              <span class="tarjeta-etiqueta">
+                AGENDA
+              </span>
+
+            </div>
+
+            <h3>
+              Agenda semanal
+            </h3>
+
+            <p>
+              Visualización y organización de las horas disponibles,
+              reservas y atenciones programadas durante la semana.
+            </p>
+
+            <span class="tarjeta-enlace">
+              Próxima funcionalidad
+              <span>→</span>
+            </span>
+
+          </article>
+
+
+          <!-- Pacientes -->
+          <article class="tarjeta-herramienta">
+
+            <div class="tarjeta-superior">
+
+              <span class="tarjeta-icono">
+                👤
+              </span>
+
+              <span class="tarjeta-etiqueta">
+                PACIENTES
+              </span>
+
+            </div>
+
+            <h3>
+              Gestión de pacientes
+            </h3>
+
+            <p>
+              Registro organizado de pacientes para relacionarlos
+              con sus reservas, sesiones y procesos de atención.
+            </p>
+
+            <span class="tarjeta-enlace">
+              Próxima funcionalidad
+              <span>→</span>
+            </span>
+
+          </article>
+
+
+          <!-- Sesiones -->
+          <article class="tarjeta-herramienta">
+
+            <div class="tarjeta-superior">
+
+              <span class="tarjeta-icono">
+                💪
+              </span>
+
+              <span class="tarjeta-etiqueta">
+                SESIONES
+              </span>
+
+            </div>
+
+            <h3>
+              Control de sesiones
+            </h3>
+
+            <p>
+              Seguimiento de sesiones contratadas, realizadas
+              y pendientes para mantener un control ordenado
+              de cada tratamiento.
+            </p>
+
+            <span class="tarjeta-enlace">
+              Próxima funcionalidad
+              <span>→</span>
+            </span>
+
+          </article>
+
+
+          <!-- Pagos -->
+          <article class="tarjeta-herramienta">
+
+            <div class="tarjeta-superior">
+
+              <span class="tarjeta-icono">
+                💳
+              </span>
+
+              <span class="tarjeta-etiqueta">
+                PAGOS
+              </span>
+
+            </div>
+
+            <h3>
+              Pagos y abonos
+            </h3>
+
+            <p>
+              Control de reservas abonadas, sesiones pagadas
+              y montos que todavía se encuentran pendientes.
+            </p>
+
+            <span class="tarjeta-enlace">
+              Próxima funcionalidad
+              <span>→</span>
+            </span>
+
+          </article>
+
+
+          <!-- Finanzas -->
+          <article class="tarjeta-herramienta">
+
+            <div class="tarjeta-superior">
+
+              <span class="tarjeta-icono">
+                📊
+              </span>
+
+              <span class="tarjeta-etiqueta">
+                FINANZAS
+              </span>
+
+            </div>
+
+            <h3>
+              Control financiero
+            </h3>
+
+            <p>
+              Registro de ingresos y egresos para obtener una
+              visión ordenada del movimiento mensual de la consulta.
+            </p>
+
+            <span class="tarjeta-enlace">
+              Próxima funcionalidad
+              <span>→</span>
+            </span>
+
+          </article>
+
+
+          <!-- Deudas -->
+          <article class="tarjeta-herramienta">
+
+            <div class="tarjeta-superior">
+
+              <span class="tarjeta-icono">
+                🧾
+              </span>
+
+              <span class="tarjeta-etiqueta">
+                PENDIENTES
+              </span>
+
+            </div>
+
+            <h3>
+              Saldos pendientes
+            </h3>
+
+            <p>
+              Identificación de pagos pendientes asociados
+              a pacientes y sesiones para facilitar su seguimiento.
+            </p>
+
+            <span class="tarjeta-enlace">
+              Próxima funcionalidad
+              <span>→</span>
+            </span>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         ENFOQUE DEL PROYECTO
+         ===================================================== -->
+
+    <section id="proyecto" class="proyecto">
+
+      <div class="contenedor">
+
+        <div class="encabezado-seccion centrado">
+
+          <p class="etiqueta-seccion">
+            ENFOQUE DEL PROYECTO
+          </p>
+
+          <h2>
+            Una herramienta creada desde
+            una necesidad real
+          </h2>
+
+          <p>
+            El proyecto busca transformar tareas que habitualmente
+            se realizan de forma separada en un flujo de trabajo
+            organizado y fácil de consultar.
+          </p>
+
+        </div>
+
+
+        <div class="grid-proyecto">
+
+          <article class="bloque-proyecto bloque-oscuro">
+
+            <span class="bloque-numero">
+              01
+            </span>
+
+            <p class="bloque-categoria">
+              ORGANIZACIÓN
+            </p>
+
+            <h3>
+              Centralizar la información
+            </h3>
+
+            <p>
+              Agenda, pacientes, sesiones y movimientos financieros
+              podrán consultarse desde una misma aplicación.
+            </p>
+
+          </article>
+
+
+          <article class="bloque-proyecto">
+
+            <span class="bloque-numero">
+              02
+            </span>
+
+            <p class="bloque-categoria">
+              SEGUIMIENTO
+            </p>
+
+            <h3>
+              Mantener un registro claro
+            </h3>
+
+            <p>
+              El sistema permitirá conocer el estado de las sesiones,
+              pagos y reservas sin depender de registros dispersos.
+            </p>
+
+          </article>
+
+
+          <article class="bloque-proyecto">
+
+            <span class="bloque-numero">
+              03
+            </span>
+
+            <p class="bloque-categoria">
+              ESCALABILIDAD
+            </p>
+
+            <h3>
+              Construir por etapas
+            </h3>
+
+            <p>
+              La arquitectura actual deja preparada la aplicación
+              para incorporar base de datos, autenticación y API.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         ESTADO TÉCNICO
+         ===================================================== -->
+
+    <section id="estado" class="estado-tecnico">
+
+      <div class="contenedor estado-contenido">
+
+        <!-- Panel izquierdo -->
+        <div class="estado-presentacion">
+
+          <p class="etiqueta-seccion etiqueta-clara">
+            ESTADO TÉCNICO
+          </p>
+
+          <h2>
+            Base del backend
+            funcionando
+          </h2>
+
+          <p>
+            Esta versión corresponde al Módulo 6 y establece
+            la estructura inicial sobre la que continuará
+            creciendo KineAgenda.
+          </p>
+
+
+          <div class="estado-aviso">
+
+            <strong>
+              Desarrollo progresivo
+            </strong>
+
+            <p>
+              Las funciones de pacientes, agenda, sesiones y
+              finanzas se incorporarán en las siguientes etapas
+              del proyecto.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Panel derecho -->
+        <div class="estado-detalles">
+
+          <article class="estado-item">
+
+            <div>
+              <span class="estado-punto"></span>
+
+              <strong>
+                Node.js
+              </strong>
+            </div>
+
+            <span class="estado-badge">
+              ACTIVO
+            </span>
+
+          </article>
+
+
+          <article class="estado-item">
+
+            <div>
+              <span class="estado-punto"></span>
+
+              <strong>
+                Express
+              </strong>
+            </div>
+
+            <span class="estado-badge">
+              ACTIVO
+            </span>
+
+          </article>
+
+
+          <article class="estado-item">
+
+            <div>
+              <span class="estado-punto"></span>
+
+              <strong>
+                Rutas públicas
+              </strong>
+            </div>
+
+            <span class="estado-badge">
+              ACTIVO
+            </span>
+
+          </article>
+
+
+          <article class="estado-item">
+
+            <div>
+              <span class="estado-punto"></span>
+
+              <strong>
+                Archivos estáticos
+              </strong>
+            </div>
+
+            <span class="estado-badge">
+              ACTIVO
+            </span>
+
+          </article>
+
+
+          <article class="estado-item">
+
+            <div>
+              <span class="estado-punto"></span>
+
+              <strong>
+                Registro de accesos
+              </strong>
+            </div>
+
+            <span class="estado-badge">
+              ACTIVO
+            </span>
+
+          </article>
+
+
+          <div class="rutas">
+
+            <p class="rutas-titulo">
+              Rutas disponibles
+            </p>
+
+
+            <div class="ruta">
+
+              <div>
+                <span class="metodo">
+                  GET
+                </span>
+
+                <code>/</code>
+              </div>
+
+              <span>
+                Interfaz principal
+              </span>
+
+            </div>
+
+
+            <div class="ruta">
+
+              <div>
+                <span class="metodo">
+                  GET
+                </span>
+
+                <code>/status</code>
+              </div>
+
+              <span>
+                Estado del servidor
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         EVOLUCIÓN DEL PROYECTO
+         ===================================================== -->
+
+    <section class="evolucion">
+
+      <div class="contenedor">
+
+        <div class="encabezado-seccion centrado">
+
+          <p class="etiqueta-seccion">
+            EVOLUCIÓN
+          </p>
+
+          <h2>
+            KineAgenda crecerá
+            módulo a módulo
+          </h2>
+
+          <p>
+            La estructura actual fue organizada pensando en las
+            funcionalidades que se incorporarán posteriormente.
+          </p>
+
+        </div>
+
+
+        <div class="modulos">
+
+          <article class="modulo modulo-actual">
+
+            <span class="modulo-numero">
+              06
+            </span>
+
+            <div>
+              <small>
+                MÓDULO ACTUAL
+              </small>
+
+              <h3>
+                Node.js + Express
+              </h3>
+
+              <p>
+                Servidor, rutas, archivos estáticos
+                y registro básico.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="modulo">
+
+            <span class="modulo-numero">
+              07
+            </span>
+
+            <div>
+              <small>
+                SIGUIENTE ETAPA
+              </small>
+
+              <h3>
+                Base de datos + CRUD
+              </h3>
+
+              <p>
+                Persistencia de pacientes, agenda,
+                sesiones y movimientos.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="modulo">
+
+            <span class="modulo-numero">
+              08
+            </span>
+
+            <div>
+              <small>
+                ETAPA FINAL
+              </small>
+
+              <h3>
+                API + Seguridad
+              </h3>
+
+              <p>
+                Autenticación, API REST y
+                manejo seguro de archivos.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="footer">
+
+    <div class="footer-contenido">
+
+      <div class="footer-marca">
+
+        <strong>
+          KineAgenda
+        </strong>
+
+        <p>
+          Gestión para atención kinésica.
+        </p>
+
+      </div>
+
+
+      <div class="footer-datos">
+
+        <p>
+          Kinesiólogo Franco Vásquez G.
+        </p>
+
+        <span>
+          Proyecto Full Stack JavaScript
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
